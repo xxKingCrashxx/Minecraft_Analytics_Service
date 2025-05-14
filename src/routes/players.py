@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from src.models import ResponseMessage
-from db_constants import PLAYER_EVENTS, PLAYER_SESSIONS, PLAYERS
+from src.db_constants import PLAYER_EVENTS, PLAYER_SESSIONS, PLAYERS
 
 player_router = APIRouter(
     prefix="/api/players",
