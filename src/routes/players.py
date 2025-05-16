@@ -26,5 +26,14 @@ def get_all_unique_players():
         }
     }
 
+@player_router.get("/{player_username}")
+def get_player(player_username: str):
+    player = PLAYERS.find_one({"player_name": player_username})
 
+    if player is None:
+        return ResponseMessage(status=200, results={})
+    else:
+        return ResponseMessage(status=200, results={
+            "player": player
+        })
 
