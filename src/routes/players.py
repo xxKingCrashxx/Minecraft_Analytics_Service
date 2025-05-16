@@ -26,7 +26,7 @@ def get_all_unique_players():
         }
     }
 
-@player_router.get("/{player_username}")
+@player_router.get("/{player_username}", response_model=ResponseMessage)
 def get_player(player_username: str):
     player = PLAYERS.find_one({"player_name": player_username})
 
