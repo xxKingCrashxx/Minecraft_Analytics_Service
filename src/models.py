@@ -26,6 +26,8 @@ class PlayerInfo(BaseModel):
     player_id: str
     player_name: str
 
+class InferredPlayerInfo(PlayerInfo):
+    confidence_score_online: float
 
 class PlayerEvent(MongoModel):
     _id: bson.ObjectId
@@ -45,5 +47,5 @@ class PlayerSession(MongoModel):
 class ServerStatus(MongoModel):
     _id: bson.ObjectId
     player_count: int
-    player_list: list[PlayerInfo]
+    player_list: list[InferredPlayerInfo]
     timestamp: datetime.datetime
